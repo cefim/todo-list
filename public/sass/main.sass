@@ -7,8 +7,7 @@ h1
     margin: 10px 30px
     background: linear-gradient(#77befb, #337ab7)
     &:hover
-        filter: brightness(80%) contrast(150%)
-
+        filter: brightness(80%) contrast(150%) hue-rotate(0DEG)
 
 html, body
     background: linear-gradient(#e9f2f9, #dae9f5)
@@ -16,6 +15,10 @@ html, body
     padding: 0
     font-family: 'Arial'
     min-height: 100vh
+
+.row
+    margin-left: 0
+    margin-right: 0
 
 .unselected
     opacity: 0.4
@@ -43,7 +46,8 @@ th
     left: 0
 
 .task-table
-    transition: all 1s
+    transition: all 1s ease-in-out
 
 .ng-hide
     transform: translateX(-100%)
+    opacity: 0
