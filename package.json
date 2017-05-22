@@ -1,0 +1,17 @@
+{
+  "name": "todolist",
+  "version": "0.1.0",
+  "description": "exercie de todolist pour le passage du titre pro",
+  "main": "index.js",
+  "dependencies": {
+    "angular-ui-bootstrap-datetimepicker": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "bookshelf": "^0.10.3",
+    "express": "^4.15.3",
+    "knex": "^0.12.9",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

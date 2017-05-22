@@ -1,0 +1,33 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1 class)"text-center">NIVEAUX D'IMPORTANCE</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Poids</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="importance in importances">
+                        <td>{{importance.importance}}</td>
+                        <td>{{importance.weight}}</td>
+                        <td>
+                            <a ng-href="#!/importance/{{importance.id}}">
+                                <button class="btn btn-primary" ng-click="getImp(importance)">Editer</button>
+                            </a>
+                            <button class="btn btn-primary" ng-click="deleteImp(importance.id)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href='#!/importance/add'>
+                <button class="btn btn-primary"> Ajouter un niveau d'importance</button>
+            </a>
+        </div>
+    </div>
+</div>

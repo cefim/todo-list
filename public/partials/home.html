@@ -1,0 +1,66 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+    <div class="text-center">
+        <h1 ng-class="{unselected : doneDisplay}" ng-click="switchtodoTable()">TACHES A EFFECTUER</h1>
+        <h1 ng-class="{unselected : todoDisplay}" ng-click="switchDoneTable()">TACHES EFFECTUEES</h1>
+    </div>
+
+    <div class="tables-container">
+        <div class="task-table" ng-show="todoDisplay">
+            <table ng-show="todoDisplay" class="task-table table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fait</th>
+                        <th>Nom</th>
+                        <th>Date limite</th>
+                        <th>Niveau d'importance</th>
+                        <th>details</th>
+                        <th>options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="task in tasks | orderBy: '-importance.weight'  | orderBy: '+date'" ng-show="isDone(task)">
+                        <td><button class="btn btn-primary" ng-click="taskDone(task, '1')">&#10004;</button></td>
+                        <td>{{task.name}}</td>
+                        <td>{{task.date | date:'MMM d, y'}}</td>
+                        <td>{{task.importance.importance}}</td>
+                        <td>{{task.details}}</td>
+                        <td>
+                            <a ng-href="#!/task/{{task.id}}">
+                                <button class="btn btn-primary" ng-click="getTask(task)">Editer</button>
+                            </a>
+                            <button class="btn btn-primary" ng-click="deleteTask(task.id)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href='#!/addtask' ng-click="displayForm()">
+                <button class="btn btn-primary"> Ajouter une tâche</button>
+            </a>
+        </div>
+
+        <table ng-show="doneDisplay" class="task-table table table-striped table-done">
+            <thead>
+                <tr>
+                    <th>Fait</th>
+                    <th>Nom</th>
+                    <th>Date limite</th>
+                    <th>Niveau d'importance</th>
+                    <th>details</th>
+                    <th>options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in tasks" ng-if="!  isDone(task)">
+                    <td><button class="btn btn-primary" ng-click="taskDone(task, '0')"> &#10008; </button></td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.date | date:'MMM d, y'}}</td>
+                    <td>{{task.importance.importance}}</td>
+                    <td>{{task.details}}</td>
+                    <td>
+                        <button ng-click="deleteTask(task.id)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
