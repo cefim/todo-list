@@ -22,5 +22,5 @@ Lancez le fichier app.js situé à la racine en ligne de commande
 
     node app.js
 
-Puis rendez vous à l'adrese suivente :
+Puis rendez vous à l'adrese suivante :
     http://localhost:8000
